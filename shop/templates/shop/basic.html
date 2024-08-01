@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="Welcome to the ultimate playground for supercar aficionados! Our website isn't just a showroom; it's a roaring engine of excitement, ready to take you on a high-octane journey through the world of automotive excellence. Think exclusive behind-the-scenes peeks into the workshops where these beasts are born, pulse-pounding virtual races that put you in the driver's seat, and a front-row ticket to the latest and greatest in supercar technology. But we're not just about speed and horsepower; we're about forging connections, building a community of enthusiasts who eat, sleep, and breathe the thrill of the ride. So strap in tight, because the ride of your life is about to begin – and it starts right here, with us." />
+  <title>{% block title%} {% endblock %}</title>
+
+  <!-- bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> 
+  <!-- OWN CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive-style.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+html{
+}
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.col-md-3
+{
+display: inline-block;
+margin-left:-4px;
+}
+.carousel-indicators .active {
+background-color: blue;
+}
+.col-md-3 img{
+width: 170px;
+height: 200px;
+}
+body .carousel-indicator li{
+background-color: blue;
+}
+body .carousel-indicators{
+bottom: -40px;
+}
+.carousel-indicators li {
+
+
+    background-color: #7270fc;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+background-color: blue;
+}
+.carousel-control-prev,
+.carousel-control-next{
+top: auto;
+bottom: auto;
+padding-top: 222px;
+}
+body .no-padding{
+padding-left: 0,
+padding-right: 0;
+}
+
+.container p{
+    cursor: pointer;
+}
+
+:active,
+:hover,
+:focus {
+  outline: 0 !important;
+  outline-offset: 0;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-color) !important;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/*===== Variable Define =====*/
+:root {
+  --primary-color: #ff553e;
+  --secondary-color: #333;
+  --white-color: #fff;
+  --black-color: #000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 100%;
+  font-weight: 400;
+  font-family: 'Dosis', sans-serif;
+}
+
+/*
+=========================================
+    Custom Scrollbar
+=========================================
+*/
+
+::-webkit-scrollbar {
+  width: 0.3125rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+
+/*
+==========================================
+   Custom CSS Design
+==========================================
+*/
+
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.5625rem;
+  text-transform: capitalize;
+  line-height: 2.5rem;
+}
+
+h4 {
+  text-transform: capitalize;
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin-bottom: 0.9375rem;
+  transition: all .3s linear;
+}
+
+h5 {
+  text-transform: capitalize;
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  letter-spacing: 0.0625rem;
+  opacity: 0.8;
+}
+
+.main-btn {
+  height: 40px;
+  line-height: 40px;
+  font-size: 1.125rem;
+  display: inline-block;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0 30px;
+  position: relative;
+}
+
+.main-btn::after,
+.main-btn::before {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(255, 255, 255, .3);
+  left: 0;
+  width: 100%;
+  height: 1px;
+  content: "";
+  transition: all .5s ease-out 0s;
+  -webkit-transition: all .5s ease-out 0s;
+  transform: translateY(-20px);
+  -webkit-transform: translateY(-20px);
+}
+
+.main-btn::after {
+  transform: translateY(20px);
+  -webkit-transform: translateY(20px);
+}
+
+.main-btn:hover::before {
+  transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  background-color: var(--primary-color);
+}
+
+.main-btn:hover::after {
+  transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg);
+  background-color: var(--primary-color);
+}
+
+.main-btn:hover {
+  color: var(--primary-color) !important;
+}
+
+.wrapper {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: var(--secondary-color);
+}
+
+.text-content {
+  width: 60%;
+  margin: auto;
+}
+
+/*
+==========================================
+   Header Design
+==========================================
+*/
+nav{
+  background-color: #333;
+}
+.top-header{
+  background-color: var(--secondary-color);
+}
+.top-header span{
+  font-size: 0.875rem;
+  /* color:var(--white-color); */
+  letter-spacing:0.1062rem;
+}
+.navigation-wrap{
+  position:fixed;
+  width: 100%;
+  left:0;
+  z-index:1000;
+  -webkit-transition:all 0.3s ease-out;
+  transition:all 0.3s ease-out; 
+}
+.navigation-wrap .nav-item{
+  padding:0 0.5rem;
+  transition:all 200ms linear;
+}
+.navbar-toggler:focus{
+  outline:unset;
+  border:none;
+  box-shadow: none;
+}
+.navigation-wrap .nav-link{
+  padding-top:0.9375rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  /* color:var(--white-color); */
+  letter-spacing:0.0625rem;
+}
+.navigation-wrap .nav-link:hover,
+.navigation-wrap .nav-link.active{
+  /* color:var(--primary-color); */
+}
+ 
+/* Change navbar styling on scroll */
+.navigation-wrap.scroll-on{
+  position:fixed;
+  background-color:var(--black-color);
+  top:0;
+  left:0;
+  width:100%;
+  box-shadow: 0 0.125rem 1.75rem 1 rgb(0,0,0,0.09);
+  transition: all .15s ease-in-out 0s;
+}
+.navigation-wrap.scroll-on .nav-link:hover,
+.navigation-wrap.scroll-on .nav-link.active{
+  /* color:var(--primary-color); */
+}
+ 
+
+/*
+==========================================
+   top-banner Design
+==========================================
+*/
+ 
+#home .carousel-caption{
+  top:12rem;
+}
+#home .carousel-caption p{
+  max-width: 36.25rem;
+  margin:1.0625rem auto;
+}
+/*
+==========================================
+New-arrivals section Design
+==========================================
+*/
+.new-arrivals .banner-info{
+  bottom:30px;
+  margin:auto;
+  width:100%;
+  position:absolute;
+  z-index:9;
+  padding:0 15px;
+}
+.new-arrivals .card-banner:nth-child(2) h2,
+.new-arrivals .card-banner:nth-child(2) p,
+.new-arrivals .card-banner:nth-child(2) a{
+  /* color:var(--black-color); */
+}
+.new-arrivals .card-banner:nth-child(2) a::before,
+.new-arrivals .card-banner:nth-child(2) a::after{
+  background-color:var(--black-color);
+}
+
+.new-arrivals .card-banner .card-thumb,
+.products .item-product{
+  position:relative;
+  display:block;
+  overflow: hidden;
+}
+.new-arrivals .card-banner .card-thumb img,
+.products .item-product img{
+  transition: all .5s ease-out 0s;
+}
+.new-arrivals .card-banner .card-thumb img:hover,
+.products .item-product img:hover{
+  transform:scale(1.2);
+  opacity:0.6;
+}
+
+
+/*
+==========================================
+ Products section Design
+==========================================
+*/
+.products .wrapper{
+  background-color:var(--black-color);
+}
+.products .nav-tabs{
+  border:0;
+  justify-content: center;
+}
+.products .nav-tabs .nav-link{
+  display:block;
+  padding:0 30px;
+  border: 1px solid var(--white-color);
+  border-radius: 20px;
+  background-color: var(--black-color);
+  /* color:var(--white-color); */
+  height:36px;
+  margin:10px;
+  line-height: 34px;
+  text-transform: uppercase;
+
+} 
+.products .product-info .cat-parent,
+.products .product-info .wishlist i{
+  font-size: 0.875rem;
+  /* color:var(--white-color); */
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+.products .product-title a{
+  margin: 0 0 7px;
+  display:block;
+  /* color:var(--white-color); */
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.products .rating i{
+  color:#f4d632
+}
+.basket a i{
+  /* color:var(--white-color); */
+}
+/*
+==========================================
+ deal-of-the-day section Design
+==========================================
+*/
+.deal-of-the-day{
+  background-image:url("../images/img/img-4.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+ 
+
+/*
+==========================================
+blog section Design
+==========================================
+*/
+.blog-section{
+  background-color:var(--black-color);
+} 
+
+
+/*
+==========================================
+footer section Design
+==========================================
+*/
+.footer{
+  background-color:var(--secondary-color);
+} 
+.footer .footer-social a i {
+  font-size: 1.5rem;
+  color:var(--white-color);
+  padding:0 1rem;
+}
+.footer .footer-social a:hover i{
+  color:var(--primary-color);
+}
+
+@media (max-width: 1024px) {
+    /* Custom CSS */
+    h1 {
+        font-size: 3.25rem;
+    }
+
+    h2 {
+        font-size: 1.125rem;
+        line-height: 1.5625rem;
+    } 
+    .wrapper {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+}
+
+@media (max-width: 991px) {
+    /* Custom CSS */
+
+    h4 {
+        font-size: 0.9375rem;
+        margin-bottom: 0.625rem
+    }
+
+    p {
+        font-size: 0.875rem;
+        line-height: 1.3125rem;
+    }
+    .text-content {
+        width: 100%;
+    }
+
+    /* navbar brand */
+    .navigation-wrap .navbar-brand img{
+        height:2.8125rem;
+    }
+    .navbar-toggler i{
+        /* color:var(--white-color); */
+        line-height: 2;
+    }
+    .navigation-wrap{
+        text-align: right;
+        background-color:var(--black-color);
+    }
+    .navigation-wrap .nav-link{
+        line-height: 1.875rem;
+    } 
+
+    /* Banner Design */
+      #home{
+          padding:4.375rem 0 0;
+      } 
+
+    /* top banner */
+    #home .carousel-caption {
+        top:3.5rem;
+    }
+     
+}
+
+@media(max-width:575px) {
+    /* Custom CSS */
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+        line-height: 1rem;
+        margin-bottom: 5px;
+    }
+    .main-btn {
+        height: 20px;
+        line-height: 20px;
+        font-size: 0.9375rem;
+    }  
+    .main-btn::after {
+        transform: translateY(0.9375rem);
+        -webkit-transform: translateY(0.9375rem);
+    } 
+    .main-btn::before {
+        transform: translateY(-0.9375rem);
+        -webkit-transform: translateY(-0.9375rem);
+    }
+
+    /* top banner */
+    #home .carousel-caption {
+        top:1.5rem;
+    }
+    #home .carousel-caption p {
+        margin:5px auto;
+    }
+     
+    
+}
+
+@media (max-width: 430px) {
+    /* Custom CSS */
+    h1 {
+        margin-bottom: 0;
+    }
+
+    /* Top Banner */
+    .top-header{
+        display:none;
+    }
+    #home .carousel-caption p{
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+    }
+    #home .carousel-caption {
+        padding:0;
+    }
+     
+}
+
+@media (max-width: 360px) {
+    /* Top Banner */
+    #home .carousel-caption {
+        top:1rem;
+    }
+     
+}
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+  <!-- header design -->
+  <header>
+    {% csrf_token %}
+    <div class="top-header">
+      <div class="container d-flex justify-content-between align-items-center py-3" style="color: wheat;">
+        <span>Free shipping for orders over </span>
+        <form action="/shop/post-data/" method="POST""><span>Call: 800-6688-999</span>
+        <input name="inp" type="text">
+        </form>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navigation-wrap">
+      <div class="container">
+        <a class="navbar-brand" href="/shop">
+          <!-- <img decoding="async" src="images/logo.png"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- <span class="navbar-toggler-icon"></span> -->
+          <i class="fas fa-stream navbar-toggler-icon"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/shop" >Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/shop/about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/shop/tracker">Tracker</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link"  href="/shop/contact">Contact Us</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link"  href="/shop/feedback">feedback</a>
+            </li> 
+          </ul>
+          <a href="/shop/login/"><button type="button" class="btn btn-primary">LogIn</button></a>
+<a href="/shop/signup/"><button type="button" class="btn btn-primary">Sign Up</button></a>
+
+    <form method='get' action='/shop/search/' class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+  Cart(<span id="cart">0</span>)
+</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+   
+  {% block body %} {% endblock %}
+
+   
+    <!-- section-7 footer-->
+    <footer>
+      <div class="footer py-4">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-md-start text-center text-lg-start"> 
+              <div class="footer-logo text-muted mb-3 mb-md-0"> 
+                © 2024. VelocityVistaMotors. All rights reserved.
+              </div>
+            </div>
+            <div class="col-md-6 text-center text-lg-end">
+              <div class="footer-social pt-1">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    {% block js %} {% endblock %}
+    <script src="js/main.js"></script>
+  </body>
+</html>
